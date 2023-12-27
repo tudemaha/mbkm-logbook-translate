@@ -46,5 +46,6 @@ go.work
 .history
 .ionide
 key.json
+translated/*
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,go,dotenv
