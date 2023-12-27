@@ -7,7 +7,7 @@
 Translate MBKM Logbook for final report or other needs.
 
 ## Prerequisites 📋
-- [Go](https://go.dev/) >= 1.0.18 
+- [Go](https://go.dev/) >= 1.19.0
 - [Google Cloud Platform](https://cloud.google.com) with billing account connected
 
 ## Usage ✨
