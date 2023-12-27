@@ -1,13 +1,15 @@
 package controller
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/tudemaha/mbkm-logbook-translate/internal/translation/dto"
+	"github.com/tudemaha/mbkm-logbook-translate/internal/translation/utils"
 	"github.com/tudemaha/mbkm-logbook-translate/pkg"
 )
 
-func GetTranslationPerWeek(sourceLang, targetLang string, week int) dto.Result {
+func GetTranslationPerWeek(sourceLang, targetLang string, week int) {
 	var result dto.Result
 	var dailyReports []dto.Daily
 
@@ -39,5 +41,8 @@ func GetTranslationPerWeek(sourceLang, targetLang string, week int) dto.Result {
 	}
 
 	result.DailyReport = dailyReports
-	return result
+	err = utils.CreateJson(fmt.Sprint(week), result)
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
 }
