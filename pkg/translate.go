@@ -9,7 +9,7 @@ import (
 	"google.golang.org/api/option"
 )
 
-func GetTranslatedReport(sourceLang, targetLang string, report []string) ([]string, error) {
+func GetTranslatedReport(sourceLang, targetLang string, reports []string) ([]string, error) {
 	ctx := context.Background()
 	c, err := translate.NewTranslationClient(ctx,
 		option.WithCredentialsFile(os.Getenv("KEY_PATH")))
@@ -19,7 +19,7 @@ func GetTranslatedReport(sourceLang, targetLang string, report []string) ([]stri
 	defer c.Close()
 
 	req := &translatepb.TranslateTextRequest{
-		Contents:           report,
+		Contents:           reports,
 		SourceLanguageCode: sourceLang,
 		TargetLanguageCode: targetLang,
 		Parent:             "projects/" + os.Getenv("PROJECT_ID"),
